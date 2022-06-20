@@ -1,15 +1,27 @@
+// Game States
+// "WIN" - Player robot has defeated all enemy-robots
+//    * Fight all enemy-robots
+//    * Defeat each enemy-robot
+// "LOSE" - Player robot's health is zero or less
+
 var playerName = window.prompt("What is your robot's name?");
 var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 10;
 
-console.log(playerName, playerAttack, playerHealth);
-
-var enemyName = "Roborto";
+var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
-var fight = function() {
+console.log(enemyNames.length);
+for(var i = 0; i < enemyNames.length; i++) {
+    console.log(enemyNames[i]);
+    console.log(i);
+    console.log(enemyNames[i] + " is at " + i + " index");
+}
+
+var fight = function(enemyName) {
+    // fight function statements
     // Alert players that they are starting the round
     window.alert("Welcome to Robot Gladiators!");
 
@@ -42,7 +54,7 @@ var fight = function() {
     }
 
 } else if (promptFight === "skip" || promptFight === "SKIP") {
-    var confirmSkip = window.confirm("Are y0u sure you'd like to skip?");
+    var confirmSkip = window.confirm("Are you sure you'd like to skip?");
     if (confirmSkip) {
         window.alert(playerName + " has decided to skip this fight. Goodbye!");
         playerMoney = playerMoney - 2;
@@ -55,4 +67,6 @@ var fight = function() {
 }
 };
 
-fight();
+for(var i = 0; i < enemyNames.length; i++) {
+    fight(enemyNames[i]);
+}
